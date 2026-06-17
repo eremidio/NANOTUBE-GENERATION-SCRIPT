@@ -1,0 +1,30 @@
+############################################################################################################
+# PROGRAMA EM PYTHON PARA GERAÇÃO DE NANOTUBOS A PARTIR DE ARQUIVOS VASP POSCAR                            #
+############################################################################################################
+
+
+1. O presente texto contém dicas de uso dos seguinte scripts em python para gerar nanoscrolls e nanotubos
+usando o algoritmo descrito no artigo: cif2tube – Algorithm for constructing nanotube and nanoscroll models
+from crystallographic information ﬁles. De autoria de  Tung-ping Wang, Dun-Yen Kang. 
+
+2. Os scripts foram escritos em python e usam a biblioteca ase que disponibiliza funcionalidades úteis para
+geração de estruturas cristalinas como a leitura de arquivos e conversão de arquivos que contenham dados
+cristalográficos. Os scripts geram arquivos usando a formatação de um arquivo POSCAR em VASP. Para algumas
+ferramentas pode ser necessário adicionar a extensão .vasp ao nome dos arquivos.
+
+3. O presente projeto dispõe de dois scripts em python para gerar supercélulas de de folhas de célculas 
+   primitivas que são usadas para gerar os nanotubos de materiais: make_supercell_armchair_chiral.py e
+   make_supercell_zigzag.py (direções ao longo do vetores de rede que não serão extendidos, parâmetros
+   nx, ny, nz devem ser definidos como ≳1, eles são usados na construção da matriz que gera a supercélula
+   que será enrolada). Dois scripts: generate_nanotube_coordinates_armchair_chiral.py e 
+   generate_nanotube_coordinates_zigzag.py ambos geram nanotubos dos materiais com as quiralidades
+   definidas no próprio nome do arquivo (o arquivo generate_nanotube_coordinates_armchain_chiral.py também
+   gera nanoscrolls - enrolamentos similares a espirais de arquimedes).
+
+4. O script clear_directory.sh remove arquivos temporários do diretório que contém o scripts python que
+   serão executados e cria um nome para o arquivo final resultante. O arquivo final tem a formatação de 
+   um arquivo POSCAR usado pelo software VASP. Programas como VESTA e a biblioteca ase em Python podem
+   ser usados para converter o arquivo gerado para o formato de arquivos .cif, .xyz, etc que são usados
+   por programas como SIESTA e QUANTUM ESPRESSO. Um script para conversão do arquivo POSCAR para um
+   arquivo .cif está disponível. 
+
